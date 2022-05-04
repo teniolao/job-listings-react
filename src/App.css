@@ -1,3 +1,97 @@
 * {
   box-sizing: border-box;
+  --Dark-Cyan: hsl(180, 29%, 50%);
+  --Light-Grayish-Cyan-Background: hsl(180, 52%, 96%);
+  --Light-Grayish-Cyan-Filter-Tablets: hsl(180, 31%, 95%);
+  --Dark-Grayish-Cyan: hsl(180, 8%, 52%);
+  --Very-Dark-Grayish-Cyan: hsl(180, 14%, 20%);
+}
+
+body {
+  background-color: var(--Light-Grayish-Cyan-Background);
+}
+
+header {
+  background-color: hsl(180, 29%, 50%);
+}
+
+.header-image {
+  height: 90px;
+  width: 100%;
+}
+
+/* card section */
+.card--list{
+  padding: 40px 0;
+}
+.card {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 25px;
+  padding: 25px;
+  background-color: white;
+  box-shadow: 0px 3px 3px rgba(166, 163, 163, 0.25);
+  border-radius: 5px;
+}
+
+.image-div {
+  text-align: center;
+}
+
+.company-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.text-content-wrapper {
+  /* background-color: brown; */
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.company-name--container {
+  display: flex;
+  text-align: center;
+  /* justify-content: space-between; */
+  /* background-color: aquamarine; */
+}
+
+.info {
+  margin: 0 5px;
+  border-radius: 8px;
+  border: none;
+  padding: 2px 5px;
+  font-size: 15px;
+  /* background-color: brown; */
+}
+
+.stats-new {
+  background-color: var(--Dark-Cyan);
+  color: var(--Light-Grayish-Cyan-Filter-Tablets);
+}
+
+.stats-feature {
+  background-color: var(--Very-Dark-Grayish-Cyan);
+  color: var(--Light-Grayish-Cyan-Filter-Tablets);
+}
+
+.light {
+  color: rgb(144, 142, 142);
+}
+
+.features-container {
+  display: flex;
+  justify-content: row;
+}
+
+.feature {
+  padding: 10px;
+  margin: auto 5px;
+  background-color: var(--Light-Grayish-Cyan-Background);
+  color: var(--Dark-Cyan);
+  border: none;
+  border-radius: 5px;
 }
