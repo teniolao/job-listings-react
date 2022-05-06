@@ -1,11 +1,31 @@
-import React from 'react'
+import React from "react";
+//import close from "/images/icon-remove.svg";
 
-const Header = () => {
+const Header = ({ keywords, removeKeywords, clearAll }) => {
   return (
-    <header>
-      <img src="/images/bg-header-desktop.svg" alt="" className="header-image" />
-    </header>
+    <>
+      <header>
+        <img
+          src="/images/bg-header-desktop.svg"
+          alt=""
+          className="header-image"
+        />
+      </header>
+      {/* <div className="header-container">
+        <ul>
+          {keywords.map((keyword, index) => (
+            <li key={index}>
+              {keyword}
+              <button className="close" onClick={() => removeKeywords(keyword)}>
+                <img src="/images/icon-remove.svg" alt="" />
+              </button>
+            </li>
+          ))}
+          {/* <a href="/" className="clear--button" onClick={() => clearAll()}>clear</a> 
+        </ul>
+      </div> */}
+    </>
   );
-}
+};
 
-export default Header
+export default Header;

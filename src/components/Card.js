@@ -1,8 +1,34 @@
-import React from 'react'
+import React from "react"; //{ useEffect }
+//import { useState } from "react";
 
-const Card = ({job}) => {
-  const {company, logo, featured, position, role, level, postedAt, contract, location, languages, tools} = job;
+const Card = ({ job, setKeywords, keywords }) => {
+  const { company, logo, featured, position, role, level, postedAt, contract, location, languages, tools} = job;
 
+  // const [filteredData, setFilteredData] = useState([]);
+
+  // const modifiedData = () => {
+  //   if (keywords) {
+  //     const newData = filteredData.filter((d) => {
+  //       return keywords.every((key) => {
+  //         return (
+  //           d.role === key ||
+  //           d.level === key ||
+  //           d.languages.includes(key) ||
+  //           d.tools.includes(key)
+  //         );
+  //       });
+  //     });
+  //     setFilteredData(newData);
+  //   } else {
+  //     setFilteredData(job);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   modifiedData();
+  // }, [keywords]);
+
+  let valueWords = [role, level, ...languages, ...tools];
 
   return (
     <div className="card">
@@ -12,33 +38,40 @@ const Card = ({job}) => {
 
       <section className="text-content-wrapper">
         <div>
-          <div className="company-name--container">
-            <div className="info  company-name">{company}</div>
-            {job.new ? <div className="info stats-new">NEW!</div> : ""}
-            {featured ? <div className="info stats-feature">FEATURED</div> : ""}
-          </div>
+          <div>
+            <div className="company-name--container">
+              <div className="info  company-name">{company}</div>
+              {job.new ? <div className="info stats-new">NEW!</div> : ""}
+              {featured ? (
+                <div className="info stats-feature">FEATURED</div>
+              ) : (
+                ""
+              )}
+            </div>
 
-          <h4>{position}</h4>
+            <h4>{position}</h4>
 
-          <div className="light">
-            <span>{postedAt}</span> <span> • {contract}</span>
-            <span> • {location}</span>
+            <div className="light-text--container">
+              <span>{postedAt}</span> <span> • {contract}</span>
+              <span> • {location}</span>
+            </div>
           </div>
         </div>
 
         <div className="features-container">
-          <button className="feature">{role}</button>
-          <button className="feature">{level}</button>
-          {languages.map((language) => (
-            <button className="feature">{language}</button>
-          ))}
-          {tools.map((tool) => (
-            <button className="feature">{tool}</button>
+          {valueWords.map((word, index) => (
+            <button
+              className="feature"
+              // onClick={() => setKeywords(word)}
+              key={index}
+            >
+              {word}
+            </button>
           ))}
         </div>
       </section>
     </div>
   );
-}
+};
 
-export default Card
+export default Card;
