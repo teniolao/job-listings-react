@@ -1,32 +1,32 @@
-import React from "react"; //{ useEffect }
-//import { useState } from "react";
+import React from "react"; 
+import { useState, useEffect } from "react";
 
 const Card = ({ job, setKeywords, keywords }) => {
   const { company, logo, featured, position, role, level, postedAt, contract, location, languages, tools} = job;
 
-  // const [filteredData, setFilteredData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
-  // const modifiedData = () => {
-  //   if (keywords) {
-  //     const newData = filteredData.filter((d) => {
-  //       return keywords.every((key) => {
-  //         return (
-  //           d.role === key ||
-  //           d.level === key ||
-  //           d.languages.includes(key) ||
-  //           d.tools.includes(key)
-  //         );
-  //       });
-  //     });
-  //     setFilteredData(newData);
-  //   } else {
-  //     setFilteredData(job);
-  //   }
-  // };
+  const modifiedData = () => {
+    if (keywords) {
+      const newData = filteredData.filter((d) => {
+        return keywords.every((key) => {
+          return (
+            d.role === key ||
+            d.level === key ||
+            d.languages.includes(key) ||
+            d.tools.includes(key)
+          );
+        });
+      });
+      setFilteredData(newData);
+    } else {
+      setFilteredData(job);
+    }
+  };
 
-  // useEffect(() => {
-  //   modifiedData();
-  // }, [keywords]);
+  useEffect(() => {
+    modifiedData();
+  }, [keywords]);
 
   let valueWords = [role, level, ...languages, ...tools];
 
@@ -62,7 +62,7 @@ const Card = ({ job, setKeywords, keywords }) => {
           {valueWords.map((word, index) => (
             <button
               className="feature"
-              // onClick={() => setKeywords(word)}
+               onClick={() => setKeywords(word)}
               key={index}
             >
               {word}
